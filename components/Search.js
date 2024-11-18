@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 
@@ -62,9 +62,7 @@ const Search = () => {
         <div>
           <h2>Immagine Casuale</h2>
           <Link href={`/${randomPhoto.id}`}>
-            <a>
               <img src={randomPhoto.urls.small} alt={randomPhoto.alt_description} />
-            </a>
           </Link>
         </div>
       )}
