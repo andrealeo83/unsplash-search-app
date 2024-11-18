@@ -28,6 +28,8 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env: # Env variables needed during build
+      NEXT_PUBLIC_UNSPLASH_ACCESS_KEY:  ${{secrets.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
