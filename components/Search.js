@@ -26,6 +26,7 @@ const Search = () => {
       event.preventDefault();
     }
     
+    setRandomPhoto(null);
     const response = await axios.get(`https://api.unsplash.com/search/photos`, {
       params: { query, page },
       headers: {
@@ -67,6 +68,10 @@ const Search = () => {
         </div>
       )}
       <div>
+        {page > 1 && <button onClick={goToPreviousPage}>Precedente</button>}
+        {page < totalPages && <button onClick={goToNextPage}>Successivo</button>}
+      </div>
+      <div>
         {photos.map(photo => (
           <div key={photo.id}>
             <Link href={`/${photo.id}`}>
@@ -75,10 +80,7 @@ const Search = () => {
           </div>
         ))}
       </div>
-      <div>
-        {page > 1 && <button onClick={goToPreviousPage}>Precedente</button>}
-        {page < totalPages && <button onClick={goToNextPage}>Successivo</button>}
-      </div>
+     
     </div>
   );
 };
